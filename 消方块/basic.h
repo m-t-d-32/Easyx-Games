@@ -1,10 +1,10 @@
 //The header file includes some basic functions,
 //making it convenient to achieve some definately goals.
 //Powered by Windows 5.1,All rights reserved.
-#pragma once
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
+
 void randominit()
 {
 	time_t timenow;

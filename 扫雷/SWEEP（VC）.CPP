@@ -10,6 +10,12 @@
 #define Left 50
 #define wide 30
 #pragma comment(lib,"WINMM.LIB")
+
+#if _MSC_VER >= 1400 
+#define itoa _itoa
+#define getch _getch
+#endif
+
 int show[10][10];
 char text[3];
 int square[10][10];
@@ -24,63 +30,68 @@ float suiji(int M)
 	b=t/10.0;
 	return b;
 }
+void outtextxy(int a, int b, char * cc){
+	WCHAR szW[50];  
+	swprintf(szW,L"%S", cc);
+	outtextxy(a, b, szW);
+}
 void digui(int p,int q,int &kind)
 {
 if (show[p+1][q]==0 && p+1<=9 && square[p+1][q]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p+1][q],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p+1][q],text,10);
 	outtextxy((p+1)*wide+Left+1,q*wide+Up+1,text);square[p+1][q]=99;kind--;
 	digui(p+1,q,kind);}
 	else if (p+1<=9 && square[p+1][q]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p+1][q],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p+1][q],text,10);
 	outtextxy((p+1)*wide+Left+1,q*wide+Up+1,text);square[p+1][q]=99;kind--;}
 if (show[p-1][q]==0 && p-1>=0 && square[p-1][q]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p-1][q],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p-1][q],text,10);
 	outtextxy((p-1)*wide+Left+1,q*wide+Up+1,text);square[p-1][q]=99;kind--;
 	digui(p-1,q,kind);}
 	else if (p-1>=0 && square[p-1][q]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p-1][q],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p-1][q],text,10);
 	outtextxy((p-1)*wide+Left+1,q*wide+Up+1,text);square[p-1][q]=99;kind--;}
 if (show[p][q+1]==0 && q+1<=9 && square[p][q+1]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p][q+1],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p][q+1],text,10);
 	outtextxy(p*wide+Left+1,(q+1)*wide+Up+1,text);square[p][q+1]=99;kind--;
 	digui(p,q+1,kind);}
 	else if (q+1<=9 && square[p][q+1]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p][q+1],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p][q+1],text,10);
 	outtextxy(p*wide+Left+1,(q+1)*wide+Up+1,text);square[p][q+1]=99;kind--;}
 if (show[p][q-1]==0 && q-1>=0 && square[p][q-1]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p][q-1],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p][q-1],text,10);
 	outtextxy(p*wide+Left+1,(q-1)*wide+Up+1,text);square[p][q-1]=99;kind--;
 	digui(p,q-1,kind);}
 	else if (q-1>=0 && square[p][q-1]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p][q-1],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p][q-1],text,10);
 	outtextxy(p*wide+Left+1,(q-1)*wide+Up+1,text);square[p][q-1]=99;kind--;}
 if (show[p+1][q+1]==0 && p+1<=9 && q+1<=9 && square[p+1][q+1]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p+1][q+1],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p+1][q+1],text,10);
 	outtextxy((p+1)*wide+Left+1,(q+1)*wide+Up+1,text);square[p+1][q+1]=99;kind--;
 	digui(p+1,q+1,kind);}
 	else if (p+1<=9 && q+1<=9 && square[p+1][q+1]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p+1][q+1],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p+1][q+1],text,10);
 	outtextxy((p+1)*wide+Left+1,(q+1)*wide+Up+1,text);square[p+1][q+1]=99;kind--;}
 if (show[p-1][q+1]==0 && p-1>=0 && q+1<=9 && square[p-1][q+1]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p-1][q+1],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p-1][q+1],text,10);
 	outtextxy((p-1)*wide+Left+1,(q+1)*wide+Up+1,text);square[p-1][q+1]=99;kind--;
 	digui(p-1,q+1,kind);}
 	else if (p-1>=0 && q+1<=9 && square[p-1][q+1]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p-1][q+1],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p-1][q+1],text,10);
 	outtextxy((p-1)*wide+Left+1,(q+1)*wide+Up+1,text);square[p-1][q+1]=99;kind--;}
 if (show[p+1][q-1]==0 && p+1<=9 && q-1>=0 && square[p+1][q-1]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p+1][q-1],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p+1][q-1],text,10);
 	outtextxy((p+1)*wide+Left+1,(q-1)*wide+Up+1,text);square[p+1][q-1]=99;kind--;
 	digui(p+1,q-1,kind);}
 	else if (p+1<=9 && q-1>=0 && square[p+1][q-1]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p+1][q-1],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p+1][q-1],text,10);
 	outtextxy((p+1)*wide+Left+1,(q-1)*wide+Up+1,text);square[p+1][q-1]=99;kind--;}
 if (show[p-1][q-1]==0 && p-1>=0 && q-1>=0 && square[p-1][q-1]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p-1][q-1],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p-1][q-1],text,10);
 	outtextxy((p-1)*wide+Left+1,(q-1)*wide+Up+1,text);square[p-1][q-1]=99;kind--;
 	digui(p,q-1,kind);}
 	else if (p-1>=0 && q-1>=0 && square[p-1][q-1]==0){setcolor(BLACK);
-	settextstyle(29, 29, _T("ËÎÌå"));itoa(show[p-1][q-1],text,10);
+	settextstyle(29, 29, _T("å®‹ä½“"));itoa(show[p-1][q-1],text,10);
 	outtextxy((p-1)*wide+Left+1,(q-1)*wide+Up+1,text);square[p-1][q-1]=99;kind--;}
 }
 void mybar(int x,int y,int xx,int yy,int z)
@@ -102,7 +113,7 @@ void boom(int x,int y,int &pds)
 	{
 		circle(x,y,i);
 	}
-	settextstyle(40, 0, _T("ËÎÌå"));
+	settextstyle(40, 0, _T("å®‹ä½“"));
 	outtextxy(100,380," You Lose!");
 	Sleep(1000);
 	pds=1;
@@ -140,12 +151,12 @@ int main()
 	setbkcolor(YELLOW);
 	cleardevice();
 	setcolor(BLUE);
-	settextstyle(42,0,_T("ºÚÌå"));
+	settextstyle(42,0,_T("é»‘ä½“"));
 	outtextxy(10,0,"Mine Sweeping");
-	settextstyle(18,0,_T("ºÚÌå"));
+	settextstyle(18,0,_T("é»‘ä½“"));
 	outtextxy(100,400,"Powered By Windows 5.1");
 	setcolor(LIGHTRED);
-	settextstyle(25,0,_T("ºÚÌå"));
+	settextstyle(25,0,_T("é»‘ä½“"));
 	outtextxy(380,20,"Press A to");
 	outtextxy(380,50,"turn left.");
 	outtextxy(380,80,"Press D to");
@@ -202,7 +213,7 @@ int main()
 	{
 		if (kind==0)
 		{
-			settextstyle(40,0,_T("ËÎÌå"));
+			settextstyle(40,0,_T("å®‹ä½“"));
 			setcolor(RED);
 			outtextxy(100,380," You Win! ");
 			Sleep(1000);
@@ -215,7 +226,7 @@ int main()
 			setbkcolor(BLACK);
 			cleardevice();
 			setcolor(RED);
-			settextstyle(40,0,_T("ºÚÌå"));
+			settextstyle(40,0,_T("é»‘ä½“"));
 			outtextxy(30,150,"You have stopped the game.");
 			outtextxy(30,250,"Press any key to exit it.");
 		}
@@ -275,7 +286,7 @@ int main()
 			{
 				itoa(show[select[0]][select[1]],text,10);
 				setcolor(BLACK);
-				settextstyle(29, 29, _T("ËÎÌå"));
+				settextstyle(29, 29, _T("å®‹ä½“"));
 				outtextxy(select[0]*wide+Left+1,select[1]*wide+Up+1,text);
 			 if (square[select[0]][select[1]]==0)
 				{

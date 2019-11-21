@@ -14,7 +14,6 @@ int nowx,nowy;
 #include <Windows.h>
 #include <time.h>
 #include "basic.h"
-#include "load0.h"
 #include "play.h"
 #pragma comment(lib,"WINMM.LIB")
 int main()

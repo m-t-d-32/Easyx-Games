@@ -56,7 +56,6 @@ int main()
  int a[1000][2]={{80,90},{70,90},{60,90},{60,80}};
  int i;
  int random=3;
- int j;
  int tmp1,tmp2;
  setbkcolor(WHITE);
  itoa(jifen,jifenxx,10);
@@ -91,15 +90,18 @@ int main()
 	bar(630,10*i,640,10*i+10);
  }
  setcolor(BLUE);
-  settextstyle(20,0,_T("ËÎÌå"));
- outtextxy(0,470,"Powered By Windows 5.1");
+  settextstyle(20,0,_T("å®‹ä½“"));
+ outtextxy(0,470,_T("Powered By Windows 5.1"));
  if (mode==1)
  {
  bar(0,0,45,15);
  setcolor(RED);
- settextstyle(25,10,_T("ËÎÌå"));
+ settextstyle(25,10,_T("å®‹ä½“"));
  }
- outtextxy(0,0,jifenxx);
+
+ WCHAR szW[100];
+ swprintf(szW,L"%S",jifenxx);
+ outtextxy(0,0,szW);
    random++;
    if (a[0][0]==shiwux && a[0][1]==shiwuy)
    {
@@ -111,7 +113,9 @@ int main()
 	 bar(0,0,30,10);
 	 mybar(shiwux,shiwuy,shiwux+10,shiwuy+10,BLACK);
 	 setcolor(BLUE);
-	 outtextxy(0,0,jifenxx);
+	 WCHAR szW[100];
+	 swprintf(szW,L"%S",jifenxx);
+	 outtextxy(0,0,szW);
 	 if (a[cd-2][0]==a[cd-1][0] && a[cd-2][1]>a[cd-1][1])
 	 {
 		a[cd][0]=a[cd-1][0];

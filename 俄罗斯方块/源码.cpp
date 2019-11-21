@@ -1,5 +1,5 @@
-//ÃÕ¤ÎËã·¨
-//¹¶Àû¹ú¼ÒÉúËÀÒÔ£¬ÆñÒò»ö¸£±ÜÇ÷Ö®¡£
+//è°œã®ç®—æ³•
+//è‹Ÿåˆ©å›½å®¶ç”Ÿæ­»ä»¥ï¼Œå²‚å› ç¥¸ç¦é¿è¶‹ä¹‹ã€‚
 #include <stdio.h>
 #include <stdlib.h>
 #include <graphics.h>
@@ -101,7 +101,7 @@ void delete_line()
 			setfillcolor(backcolor);
 			bar(320,100,480,200);
 			_stprintf(key_score,_T("%d"),score);
-			settextstyle(50,0,_T("ºÚÌå"));
+			settextstyle(50,0,_T("é»‘ä½“"));
 			settextcolor(RGB(rand()%200+56,rand()%189+56,rand()%192+56));
 			outtextxy(360-score/10*10,100,key_score);
 			setcolor(WHITE);
@@ -269,7 +269,7 @@ int main()
 	else s_time=200;
 	initgraph(640,480);
 	PlaySound(TEXT("back.wav"),NULL,SND_FILENAME | SND_ASYNC | SND_LOOP);
-	settextstyle(30,0,_T("ËÎÌå"));
+	settextstyle(30,0,_T("å®‹ä½“"));
 	outtextxy(200,200,_T("Welcome To Play!"));
 	Sleep(2000);
 	initgraph(480,480);
@@ -288,11 +288,11 @@ int main()
 	setcolor(YELLOW);
 	rectangle(left,up,left+wide*11,up+wide*21);
 	rectangle(left+wide,up+wide,left+wide*10,up+wide*20);
-	settextstyle(20,0,_T("ºÚÌå"));
+	settextstyle(20,0,_T("é»‘ä½“"));
 	outtextxy(320,30,_T("Your Score"));
-	settextstyle(50,0,_T("ºÚÌå"));
+	settextstyle(50,0,_T("é»‘ä½“"));
 	outtextxy(360,100,_T("0"));
-	settextstyle(20,0,_T("ºÚÌå"));
+	settextstyle(20,0,_T("é»‘ä½“"));
 	outtextxy(320,200,_T("Next Shape"));
 	settextcolor(RED);
 	outtextxy(300,400,_T("Press Q to exit"));
@@ -454,16 +454,16 @@ int main()
 	{
 	 cleardevice();
 	 Sleep(100);
-	 settextstyle(20,0,_T("ºÚÌå"));
+	 settextstyle(20,0,_T("é»‘ä½“"));
 	 outtextxy(200,150,_T("Game Over"));
 	 outtextxy(190,180,_T("Final Score"));
 	 Sleep(100);
-	 settextstyle(50,0,_T("ºÚÌå"));
+	 settextstyle(50,0,_T("é»‘ä½“"));
 	 outtextxy(230-score/10*10,220,key_score);
 	 Sleep(100);
 	}
 	PlaySound(NULL,NULL,NULL);
-	settextstyle(20,0,_T("ºÚÌå"));
+	settextstyle(20,0,_T("é»‘ä½“"));
 	outtextxy(145,400,_T("Press Any Key to Exit"));
 	system("pause");
 	return 0;
